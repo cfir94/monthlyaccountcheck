@@ -102,12 +102,25 @@ function samples() {
 
 function openDatabase() {
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open('monthly-account-check', 1);
-    request.onupgradeneeded = () => {
+    const request = indexedDB.open('monthly-account-check', 2);
+    request.onupgradeneeded = (event) => {
       const db = request.result;
-      const transactions = db.createObjectStore(storeName, { keyPath: 'id' });
-      db.createObjectStore('attachments');
-      samples().forEach((entry) => transactions.add(entry));
+      if (event.oldVersion === 0) {
+        const transactions = db.createObjectStore(storeName, { keyPath: 'id' });
+        db.createObjectStore('attachments');
+        samples().forEach((entry) => transactions.add(entry));
+      } else {
+        const transactions = request.transaction.objectStore(storeName);
+        for (const { id, description } of samples()) {
+          const stored = transactions.get(id);
+          stored.onsuccess = () => {
+            const entry = stored.result;
+            if (entry?.demo && entry.description === description.replace(/[^\x00-\x7F]/g, '?')) {
+              transactions.put({ ...entry, description });
+            }
+          };
+        }
+      }
     };
     request.onsuccess = () => resolve(request.result);
     request.onerror = () => reject(request.error);
@@ -421,6 +434,7 @@ byId('confirm-delete-button').addEventListener('click', async () => {
 async function start() {
   try {
     database = await openDatabase();
+    database.onversionchange = () => database.close();
     entries = await read(storeName);
     render();
     byId('add').disabled = false;
