@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#271b49">
+<meta name="description" content="???? ????? ??? ??????, ?????? ??????">
+<title>????? ???? | ???? ?????</title>
+<style>
+:root{color-scheme:light;--ink:#231938;--muted:#665b77;--line:#eae4f0;--paper:#fff;--bg:#f7f4fa;--violet:#6331b9;--dark:#271b49;--green:#176549;--red:#aa3659;--radius:22px;font-family:Arial,"Noto Sans Hebrew",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-size:16px}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #a17aff;outline-offset:3px}button[hidden],[hidden]{display:none!important}button:disabled{opacity:.6;cursor:wait}h1,h2,p{margin:0}a{color:inherit}.icon{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:12px;font-size:22px;flex:none;font-weight:700}.wrap{width:min(1160px,calc(100% - 64px));margin-inline:auto}.top{background:var(--dark);color:white}.top .wrap{min-height:69px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800}.brand .icon{background:#c6a8ff;color:#311c5d;font-size:24px}.demo{font-size:14px;border:1px solid #76658e;border-radius:100px;padding:7px 12px;color:#f3eafa}.dashboard{padding-block:32px 46px}.hero{position:relative;isolation:isolate;overflow:hidden;border-radius:28px;background:linear-gradient(117deg,#2b1c4f 10%,#3d236c 57%,#683fa3 100%);padding:32px 36px;color:white;display:flex;align-items:center;justify-content:space-between;gap:22px;min-height:158px}.hero:before,.hero:after{content:"";position:absolute;z-index:-1;pointer-events:none;border:1px solid #d9bafa55;border-radius:50%;width:350px;height:350px;inset-inline-end:-94px;top:-124px;box-shadow:0 0 0 28px #ddc4fe19,0 0 0 58px #ddc4fe12,0 0 0 92px #ddc4fe0d}.hero:after{width:12px;height:12px;inset-inline-end:31%;top:27px;background:#dfc0ff;border:0;box-shadow:0 0 26px #efe0ff}.hero h1{font-size:clamp(30px,4vw,51px);font-weight:800;letter-spacing:-.045em}.hero p{margin-top:9px;color:#eee4ff;font-size:16px;line-height:1.5}.btn{border:1px solid transparent;border-radius:12px;padding:10px 15px;min-height:44px;background:var(--violet);color:white;font-weight:700;white-space:nowrap}.btn:hover{filter:brightness(1.1)}.btn-light{background:#e7d4ff;color:#291449}.btn-plain{background:white;color:#4c2880;border-color:#e6dced}.btn-danger{background:#fbe7ee;color:#8c2548}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:26px 0 13px}h2{font-size:20px;letter-spacing:-.025em}.section-head h2{font-size:23px}.control{border:1px solid #ded4e7;border-radius:10px;min-height:42px;padding:8px 11px;background:white;color:var(--ink);max-width:100%}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.metric{padding:18px 20px;border-radius:var(--radius);min-width:0;display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px 12px}.metric h3{font-size:15px;margin:0;font-weight:700}.metric strong{font-size:clamp(23px,3vw,35px);letter-spacing:-.055em;grid-column:1/-1;justify-self:start;overflow-wrap:anywhere}.income{background:#dff5e9;color:#145b43}.expense{background:#fee7ef;color:#922946}.balance{background:#e9ddff;color:#50279b}.income .icon{background:#c3ecd8}.expense .icon{background:#fbd1e1}.balance .icon{background:#dbc5ff}.viz{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:16px;margin-top:16px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;min-width:0}.panel-title{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}.legend{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:14px}.legend span,.breakdown span{display:flex;gap:6px;align-items:center}.dot{display:inline-block;width:9px;height:9px;flex:0 0 9px;border-radius:50%;background:var(--color)}.chart{display:grid;gap:9px;margin-top:16px}.chart-plot{position:relative;height:115px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;background:repeating-linear-gradient(to top,#eee8f2 0 1px,transparent 1px 38px);border-bottom:1px solid #eee8f2}.bars{display:flex;align-items:flex-end;justify-content:center;gap:6px}.bar{width:min(26px,35%);border-radius:6px 6px 0 0;background:var(--color);height:var(--height)}.chart-labels{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;color:var(--muted);font-size:14px}.distribution{display:flex;align-items:center;gap:19px;min-height:145px;padding-top:13px}.donut{width:115px;aspect-ratio:1;border-radius:50%;background:var(--segments);display:grid;place-items:center;flex:none}.donut::after{content:"";width:69%;aspect-ratio:1;background:white;border-radius:50%}.breakdown{list-style:none;padding:0;margin:0;flex:auto;min-width:0;display:grid;gap:8px;font-size:14px}.breakdown li{display:flex;justify-content:space-between;gap:8px}.breakdown b{white-space:nowrap}.muted{color:var(--muted)}.transactions{margin-top:16px}.filters{display:flex;gap:8px;flex-wrap:wrap}.filters input{width:165px}.list{list-style:none;padding:0;margin:11px 0 0}.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(90px,.37fr) auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line);min-height:62px}.entry{display:flex;align-items:center;gap:10px;min-width:0}.entry strong,.entry small{display:block;overflow-wrap:anywhere}.entry small{margin-top:3px;color:var(--muted);font-size:14px}.row-buttons{display:flex;gap:5px;justify-content:end}.quiet{color:#512c88;background:#f4edf9;border:0;border-radius:9px;padding:8px 10px;min-height:38px;font-weight:700;font-size:14px}.money{font-weight:800;justify-self:end;white-space:nowrap}.money[data-type="income"]{color:var(--green)}.money[data-type="expense"]{color:var(--red)}.empty{padding:20px 0 6px;color:var(--muted)}.foot{font-size:14px;color:var(--muted);margin-top:18px;line-height:1.5}dialog{width:min(510px,calc(100% - 24px));max-height:calc(100dvh - 30px);border:1px solid var(--line);border-radius:24px;padding:23px;color:var(--ink);box-shadow:0 22px 80px #20144244}dialog::backdrop{background:#22152c88}.close{border:0;background:#f3ebfa;color:#59338d;border-radius:9px;width:38px;height:38px;font-size:24px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:14px}.field{display:grid;gap:6px;font-weight:700;font-size:14px;min-width:0}.field input,.field select{width:100%;min-width:0}.full{grid-column:1/-1}.attachment{border:1px dashed #cdb7e5;border-radius:14px;padding:12px;display:grid;gap:8px}.attachment-actions,.form-actions{display:flex;gap:8px;flex-wrap:wrap}.form-actions{margin-top:16px;justify-content:space-between}.error{color:#9a2547;margin-top:9px;font-size:14px}.file-name{font-weight:400;overflow-wrap:anywhere}.message{margin-top:12px;line-height:1.5}.receipt-image{display:block;max-width:100%;max-height:63dvh;margin:12px auto;border-radius:9px}#download-receipt{display:inline-block;text-decoration:none;margin-top:10px}#notice{position:fixed;z-index:2;inset-inline-start:18px;bottom:16px;max-width:calc(100% - 36px);padding:12px 18px;background:#2b1b49;color:white;border-radius:12px;box-shadow:0 4px 20px #0003}#notice:empty{display:none}.skip{position:absolute;top:-100px}.skip:focus{top:10px;z-index:5;background:white;color:black;padding:10px}
+@media(max-width:700px){.wrap{width:calc(100% - 28px)}.dashboard{padding-top:17px}.hero{padding:22px;min-height:0;align-items:start;flex-direction:column;gap:14px}.hero:before{inset-inline-end:-248px}.metrics{gap:8px}.metric{padding:11px 9px;gap:6px;border-radius:15px}.metric .icon{width:28px;height:28px;font-size:17px}.metric h3{font-size:14px}.metric strong{font-size:clamp(15px,4.6vw,27px)}.viz{grid-template-columns:1fr;gap:12px}.panel{padding:14px}.filters input{width:125px}.transactions .panel-title{align-items:start}.row{grid-template-columns:minmax(0,1fr) auto;gap:7px}.row-buttons{grid-column:1/-1}.section-head h2{font-size:20px}.top .wrap{min-height:56px}.brand{font-size:18px}.brand .icon{width:34px;height:34px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">????? ???????</a>
+<header class="top"><div class="wrap"><div class="brand"><span class="icon" aria-hidden="true">?</span>????? ????</div><span class="demo">???? ?????</span></div></header>
+<main class="wrap dashboard" id="main">
+  <section class="hero" aria-labelledby="title"><div><h1 id="title">????? ??? ??????</h1><p>???????, ??????? ??????? ??? ????? ???.</p></div><button class="btn btn-light" id="add" type="button">+ ????? ????</button></section>
+  <div class="section-head"><h2>????? ?????</h2><div class="filters"><button class="quiet" id="toggle-demo" type="button" aria-pressed="true">????? ?????</button><input class="control" type="month" id="month" aria-label="???? ?????"></div></div>
+  <section class="metrics" aria-label="?????? ???????">
+    <article class="metric balance"><h3>???? ??????</h3><span class="icon" aria-hidden="true">?</span><strong id="balance" dir="ltr">-</strong></article>
+    <article class="metric income"><h3>??????</h3><span class="icon" aria-hidden="true">+</span><strong id="income" dir="ltr">-</strong></article>
+    <article class="metric expense"><h3>??????</h3><span class="icon" aria-hidden="true">-</span><strong id="expense" dir="ltr">-</strong></article>
+  </section>
+  <div class="viz">
+    <section class="panel"><div class="panel-title"><h2>????? ????? ?????</h2><div class="legend"><span><i class="dot" style="--color:#408d73"></i>??????</span><span><i class="dot" style="--color:#b45685"></i>??????</span></div></div><div id="chart" class="chart"></div></section>
+    <section class="panel"><h2>?????? ??? ???????</h2><div id="distribution" class="distribution"></div></section>
+  </div>
+  <section class="panel transactions"><div class="panel-title"><h2>?????? ?????</h2><div class="filters"><input class="control" type="search" id="search" placeholder="????? ?????" aria-label="????? ?????"><select class="control" id="filter" aria-label="????? ??? ???"><option value="all">?? ??????</option><option value="expense">??????</option><option value="income">??????</option></select></div></div><ul class="list" id="list"></ul></section>
+  <p class="foot">??????? ??????? ?????? ?????? ???. ????? ?????? ??????? ?????? ???????.</p>
+</main>
+<dialog id="editor" aria-labelledby="editor-title">
+  <div class="panel-title"><h2 id="editor-title">????? ????</h2><button class="close" id="close-editor" type="button" aria-label="?????">x</button></div>
+  <form id="entry-form">
+    <div class="form-grid">
+      <label class="field">??? ?????<select class="control" id="type"><option value="expense">?????</option><option value="income">?????</option></select></label>
+      <label class="field">???? ??????<input class="control" id="amount" type="number" inputmode="decimal" min="0.01" max="999999999.99" step="0.01" required></label>
+      <label class="field full">?????<input class="control" id="description" maxlength="100" placeholder="????, ????? ?????" required></label>
+      <label class="field">?????<input class="control" id="date" type="date" required></label>
+      <label class="field">???????<select class="control" id="category" required></select></label>
+      <div class="field full attachment"><span>??????? ?? ????</span><div class="attachment-actions"><button class="btn btn-plain" type="button" id="camera-button">?????</button><button class="btn btn-plain" type="button" id="upload-button">????? ????</button><button class="quiet" type="button" id="remove-file" hidden>???? ????</button></div><input id="camera" type="file" accept="image/*" capture="environment" hidden><input id="upload" type="file" accept="image/*,application/pdf,.pdf" hidden><span id="file-name" class="file-name muted" aria-live="polite">????? ?? PDF, ?? 15MB.</span></div>
+    </div>
+    <p class="error" id="form-error" role="alert"></p><div class="form-actions"><button class="btn" id="save" type="submit">?????</button><button class="btn btn-danger" id="delete" type="button" hidden>????? ?????</button></div>
+  </form>
+</dialog>
+<dialog id="receipt" aria-labelledby="receipt-title"><div class="panel-title"><h2 id="receipt-title">??????? ?? ????</h2><button class="close" id="close-receipt" type="button" aria-label="?????">x</button></div><div id="receipt-content"></div><a class="btn" id="download-receipt" download>????? ?????</a></dialog>
+<dialog id="confirm-delete" aria-labelledby="delete-title"><h2 id="delete-title">????? ?? ???????</h2><p class="message">?????? ?????? ?????? ????? ???????.</p><div class="form-actions"><button class="btn btn-plain" id="cancel-delete" type="button">?????</button><button class="btn btn-danger" id="confirm-delete-button" type="button">?????</button></div></dialog>
+<div id="notice" role="status"></div>
+<script>
+'use strict';
+const byId = (id) => document.getElementById(id);
+const editor = byId('editor');
+const receiptDialog = byId('receipt');
+const deleteDialog = byId('confirm-delete');
+const form = byId('entry-form');
+const monthInput = byId('month');
+const currency = new Intl.NumberFormat('he-IL', { style: 'currency', currency: 'ILS', maximumFractionDigits: 2, minimumFractionDigits: 0 });
+const dateLabel = new Intl.DateTimeFormat('he-IL', { day: 'numeric', month: 'short' });
+const money = (cents) => currency.format(cents / 100);
+const today = () => {
+  const now = new Date();
+  return [now.getFullYear(), ...[now.getMonth() + 1, now.getDate()].map((n) => String(n).padStart(2, '0'))].join('-');
+};
+const categories = {
+  expense: { food: '???? ??????', home: '??? ????????', business: '??? ??????', transit: '??????', leisure: '????? ?????', other: '???' },
+  income: { salary: '??????', client: '????? ?????', refund: '????', other: '???' },
+};
+const colors = ['#7046b7', '#dc859f', '#ecae67', '#4f9c83', '#628bd1', '#8c749c'];
+const storeName = 'transactions';
+const sampleMonth = today().slice(0, 7);
+let database;
+let entries = [];
+let editingId = null;
+let attachment = null;
+let receiptUrl;
+let noticeTimer;
+let busy = false;
+let showDemo = true;
+monthInput.value = sampleMonth;
+byId('add').disabled = true;
+
+function element(tag, className, value) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (value !== undefined) node.textContent = value;
+  return node;
+}
+
+function samples() {
+  return [
+    [3, 'income', 'client', '????? ?? ???? AI', 540000],
+    [5, 'expense', 'home', '??? ????', 305000],
+    [9, 'expense', 'food', '????? ?????', 43800],
+    [12, 'income', 'client', '????? ??????', 380000],
+    [17, 'expense', 'transit', '?????', 31500],
+    [20, 'expense', 'business', '????? ??????', 8900],
+    [22, 'income', 'client', '??????? ??????', 185000],
+    [24, 'expense', 'leisure', '????? ???', 26200],
+  ].map(([day, type, category, description, cents], index) => ({ id: `demo-${index}`, date: `${sampleMonth}-${String(day).padStart(2, '0')}`, type, category, description, cents, demo: true }));
+}
+
+function openDatabase() {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open('monthly-account-check', 1);
+    request.onupgradeneeded = () => {
+      const db = request.result;
+      const transactions = db.createObjectStore(storeName, { keyPath: 'id' });
+      db.createObjectStore('attachments');
+      samples().forEach((entry) => transactions.add(entry));
+    };
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+    request.onblocked = () => reject(new Error('Storage is blocked'));
+  });
+}
+
+function read(store, query) {
+  return new Promise((resolve, reject) => {
+    const objectStore = database.transaction(store).objectStore(store);
+    const request = query === undefined ? objectStore.getAll() : objectStore.get(query);
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
+}
+
+function write(id, entry, file) {
+  return new Promise((resolve, reject) => {
+    const transaction = database.transaction([storeName, 'attachments'], 'readwrite');
+    const transactions = transaction.objectStore(storeName);
+    const attachments = transaction.objectStore('attachments');
+    transaction.oncomplete = resolve;
+    transaction.onabort = () => reject(transaction.error);
+    if (entry) transactions.put(entry);
+    else transactions.delete(id);
+    if (file) attachments.put(file, id);
+    else attachments.delete(id);
+  });
+}
+
+function announce(message) {
+  clearTimeout(noticeTimer);
+  byId('notice').textContent = message;
+  if (message) noticeTimer = setTimeout(() => { byId('notice').textContent = ''; }, 4500);
+}
+
+function renderChart(monthEntries) {
+  const groups = Array.from({ length: 4 }, () => ({ income: 0, expense: 0 }));
+  for (const entry of monthEntries) {
+    const day = Number(entry.date.slice(8));
+    groups[Math.min(3, Math.floor((day - 1) / 7))][entry.type] += entry.cents;
+  }
+  const max = Math.max(1, ...groups.flatMap(({ income, expense }) => [income, expense]));
+  const plot = element('div', 'chart-plot');
+  const labels = element('div', 'chart-labels');
+  const [year, month] = monthInput.value.split('-').map(Number);
+  const lastDay = new Date(year, month, 0).getDate();
+  const ranges = ['1-7', '8-14', '15-21', `22-${lastDay}`];
+  for (const [index, group] of groups.entries()) {
+    const pair = element('div', 'bars');
+    const label = `???? ${ranges[index]}, ?????? ${money(group.income)}, ?????? ${money(group.expense)}`;
+    pair.title = label;
+    pair.setAttribute('role', 'img');
+    pair.setAttribute('aria-label', label);
+    for (const [type, color] of [['income', '#408d73'], ['expense', '#b45685']]) {
+      const bar = element('div', 'bar');
+      bar.style.setProperty('--color', color);
+      bar.style.setProperty('--height', `${(group[type] / max) * 100}%`);
+      pair.append(bar);
+    }
+    const range = element('span', '', ranges[index]);
+    range.dir = 'ltr';
+    labels.append(range);
+    plot.append(pair);
+  }
+  byId('chart').replaceChildren(plot, labels);
+}
+
+function renderDistribution(monthEntries, expense) {
+  const panel = byId('distribution');
+  if (expense === 0) {
+    panel.replaceChildren(element('p', 'muted', '??? ?????? ????? ????? ???.'));
+    return;
+  }
+  const totals = new Map();
+  for (const entry of monthEntries.filter(({ type }) => type === 'expense')) {
+    totals.set(entry.category, (totals.get(entry.category) || 0) + entry.cents);
+  }
+  const summary = [...totals.entries()].sort((a, b) => b[1] - a[1]);
+  const donut = element('div', 'donut');
+  donut.setAttribute('aria-hidden', 'true');
+  const breakdown = element('ul', 'breakdown');
+  let position = 0;
+  const segments = summary.map(([category, cents], index) => {
+    const start = position;
+    position += 100 * cents / expense;
+    const color = colors[index];
+    const item = element('li');
+    const label = element('span');
+    const dot = element('i', 'dot');
+    dot.style.setProperty('--color', color);
+    label.append(dot, categories.expense[category]);
+    item.append(label, element('b', '', money(cents)));
+    breakdown.append(item);
+    return `${color} ${start}% ${Math.min(100, position)}%`;
+  });
+  donut.style.setProperty('--segments', `conic-gradient(${segments.join(', ')})`);
+  panel.replaceChildren(donut, breakdown);
+}
+
+function renderList(monthEntries) {
+  const list = byId('list');
+  const filter = byId('filter').value;
+  const query = byId('search').value.trim().toLocaleLowerCase('he');
+  const matching = monthEntries.filter((entry) => (filter === 'all' || entry.type === filter) &&
+    `${entry.description} ${categories[entry.type][entry.category]}`.toLocaleLowerCase('he').includes(query));
+  matching.sort((a, b) => b.date.localeCompare(a.date));
+  const rows = matching.map((entry) => {
+    const row = element('li', 'row');
+    const identity = element('div', 'entry');
+    const icon = element('span', `icon ${entry.type}`, entry.type === 'income' ? '+' : '-');
+    icon.setAttribute('aria-hidden', 'true');
+    const details = element('div');
+    const label = [dateLabel.format(new Date(`${entry.date}T12:00:00`)), categories[entry.type][entry.category]];
+    if (entry.demo) label.push('?????');
+    details.append(element('strong', '', entry.description), element('small', '', label.join(' � ')));
+    identity.append(icon, details);
+    const value = element('b', 'money', money(entry.type === 'income' ? entry.cents : -entry.cents));
+    value.dataset.type = entry.type;
+    value.dir = 'ltr';
+    const actions = element('div', 'row-buttons');
+    if (entry.fileName) {
+      const view = element('button', 'quiet', '???? ?????');
+      view.setAttribute('aria-label', `???? ????? ???? ${entry.description}`);
+      view.addEventListener('click', () => viewReceipt(entry));
+      actions.append(view);
+    }
+    const edit = element('button', 'quiet', '?????');
+    edit.setAttribute('aria-label', `????? ${entry.description}`);
+    edit.addEventListener('click', () => showEditor(entry));
+    actions.append(edit);
+    row.append(identity, value, actions);
+    return row;
+  });
+  list.replaceChildren(...(rows.length ? rows : [element('li', 'empty', '??? ?????? ?????.')]));
+}
+
+function render() {
+  const monthEntries = entries.filter((entry) => entry.date.startsWith(monthInput.value) && (showDemo || !entry.demo));
+  const totals = { income: 0, expense: 0 };
+  monthEntries.forEach(({ cents, type }) => { totals[type] += cents; });
+  byId('income').textContent = money(totals.income);
+  byId('expense').textContent = money(totals.expense);
+  byId('balance').textContent = money(totals.income - totals.expense);
+  renderChart(monthEntries);
+  renderDistribution(monthEntries, totals.expense);
+  renderList(monthEntries);
+}
+
+function setCategories(selected) {
+  const choices = Object.entries(categories[byId('type').value]);
+  byId('category').replaceChildren(...choices.map(([id, label]) => new Option(label, id)));
+  if (selected) byId('category').value = selected;
+}
+
+function setAttachment(file) {
+  attachment = file;
+  byId('file-name').textContent = file?.name || '????? ?? PDF, ?? 15MB.';
+  byId('remove-file').hidden = !file;
+}
+
+async function showEditor(entry) {
+  if (busy || editor.open) return;
+  busy = true;
+  try {
+    const file = entry?.fileName ? await read('attachments', entry.id) : null;
+    form.reset();
+    byId('form-error').textContent = '';
+    editingId = entry?.id || null;
+    byId('editor-title').textContent = entry ? '????? ?????' : '????? ????';
+    byId('delete').hidden = !entry;
+    byId('type').value = entry?.type || 'expense';
+    byId('amount').value = entry ? entry.cents / 100 : '';
+    byId('description').value = entry?.description || '';
+    byId('date').value = entry?.date || (monthInput.value === today().slice(0, 7) ? today() : `${monthInput.value}-01`);
+    setCategories(entry?.category);
+    setAttachment(file);
+    editor.showModal();
+  } catch {
+    announce('????? ?????? ?????. ???? ????? ???.');
+  } finally {
+    busy = false;
+  }
+}
+
+async function viewReceipt(entry) {
+  if (busy || receiptDialog.open) return;
+  busy = true;
+  try {
+    const file = await read('attachments', entry.id);
+    if (!file) throw new Error('Missing attachment');
+    receiptUrl = URL.createObjectURL(file);
+    const content = byId('receipt-content');
+    const label = element('p', 'message', file.name);
+    content.replaceChildren(label);
+    if (/^image\/(jpeg|png|gif|webp|bmp|avif)$/.test(file.type)) {
+      const preview = element('img', 'receipt-image');
+      preview.src = receiptUrl;
+      preview.alt = '????? ?????? ?? ????? ??????';
+      content.append(preview);
+    }
+    const download = byId('download-receipt');
+    download.href = receiptUrl;
+    download.download = file.name;
+    receiptDialog.showModal();
+  } catch {
+    announce('????? ????? ?????.');
+  } finally {
+    busy = false;
+  }
+}
+
+async function saveEntry(event) {
+  event.preventDefault();
+  if (busy) return;
+  const description = byId('description').value.trim();
+  const error = byId('form-error');
+  if (!description) {
+    error.textContent = '?? ????? ????? ??????.';
+    byId('description').focus();
+    return;
+  }
+  const id = editingId || crypto.randomUUID();
+  const entry = {
+    id, description, cents: Math.round(Number(byId('amount').value) * 100),
+    type: byId('type').value, category: byId('category').value, date: byId('date').value,
+    fileName: attachment?.name || '', demo: entries.find((item) => item.id === editingId)?.demo || false,
+  };
+  busy = true;
+  byId('save').disabled = true;
+  try {
+    await write(id, entry, attachment);
+    entries = [...entries.filter((item) => item.id !== id), entry];
+    monthInput.value = entry.date.slice(0, 7);
+    byId('filter').value = 'all';
+    byId('search').value = '';
+    editor.close();
+    render();
+    announce('?????? ?????.');
+  } catch {
+    error.textContent = '?? ?????? ?????. ???? ??? ???? ???? ?????? ???? ???.';
+  } finally {
+    busy = false;
+    byId('save').disabled = false;
+  }
+}
+
+byId('add').addEventListener('click', () => showEditor());
+byId('close-editor').addEventListener('click', () => { if (!busy) editor.close(); });
+byId('close-receipt').addEventListener('click', () => receiptDialog.close());
+receiptDialog.addEventListener('close', () => {
+  URL.revokeObjectURL(receiptUrl);
+  byId('download-receipt').removeAttribute('href');
+  byId('receipt-content').replaceChildren();
+});
+for (const dialog of [editor, deleteDialog]) {
+  dialog.addEventListener('cancel', (event) => { if (busy) event.preventDefault(); });
+}
+byId('type').addEventListener('change', () => setCategories());
+monthInput.addEventListener('change', () => {
+  if (!monthInput.value) monthInput.value = today().slice(0, 7);
+  render();
+});
+byId('filter').addEventListener('change', render);
+byId('search').addEventListener('input', render);
+byId('toggle-demo').addEventListener('click', () => {
+  showDemo = !showDemo;
+  byId('toggle-demo').setAttribute('aria-pressed', String(showDemo));
+  render();
+});
+for (const id of ['camera', 'upload']) {
+  const input = byId(id);
+  byId(`${id}-button`).addEventListener('click', () => { if (!busy) input.click(); });
+  input.addEventListener('change', () => {
+    const [file] = input.files;
+    input.value = '';
+    if (!file) return;
+    const isSupported = file.type.startsWith('image/') || file.type === 'application/pdf' || /\.(pdf|jpe?g|png|heic|heif|webp|avif|gif|bmp)$/i.test(file.name);
+    if (!isSupported || file.size > 15 * 1024 * 1024) {
+      byId('form-error').textContent = '???? ???? ????? ?? PDF ????? ?? 15MB.';
+      return;
+    }
+    byId('form-error').textContent = '';
+    setAttachment(file);
+  });
+}
+byId('remove-file').addEventListener('click', () => { if (!busy) setAttachment(null); });
+form.addEventListener('submit', saveEntry);
+byId('delete').addEventListener('click', () => { if (!busy) deleteDialog.showModal(); });
+byId('cancel-delete').addEventListener('click', () => { if (!busy) deleteDialog.close(); });
+byId('confirm-delete-button').addEventListener('click', async () => {
+  if (busy || !editingId) return;
+  busy = true;
+  byId('confirm-delete-button').disabled = true;
+  try {
+    await write(editingId, null, null);
+    entries = entries.filter(({ id }) => id !== editingId);
+    deleteDialog.close();
+    editor.close();
+    render();
+    announce('?????? ?????.');
+  } catch {
+    deleteDialog.close();
+    byId('form-error').textContent = '????? ?????? ?????. ???? ????? ???.';
+  } finally {
+    busy = false;
+    byId('confirm-delete-button').disabled = false;
+  }
+});
+
+async function start() {
+  try {
+    database = await openDatabase();
+    entries = await read(storeName);
+    render();
+    byId('add').disabled = false;
+  } catch {
+    byId('list').replaceChildren(element('li', 'empty', '?????? ?????? ???? ????. ???? ???? ?? ??? ?????? ???.'));
+  }
+}
+start();
+</script>
+</body>
+</html>
+
